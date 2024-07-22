@@ -20,14 +20,13 @@ display: none;
 #open-widget {
 
 position: fixed;
-bottom: 80px;
+bottom: 40px;
 right: 20px;
 
 
 
 z-index: 10;
 }
-
 
 body {
     --start-screen-bg: #f3f3f5;
