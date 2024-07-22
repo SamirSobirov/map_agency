@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#support-widget {
+    padding: 5px 5px;
+position: fixed;
+bottom: 20px;
+right: 20px;
+width: 320px;
+background: white;
+border: 1px solid #ccc;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+display: none;
+}
+
+#open-widget {
+
+position: fixed;
+bottom: 80px;
+right: 20px;
+
+
+
+z-index: 10;
+}
+
+
+body {
+    --start-screen-bg: #f3f3f5;
+    --special-color: #f3f3f5;
+    --default-color: #fff;
+    --tooltip-bg-color: #FFF705;
+}
+
+.grecaptcha-badge {
+    opacity: 0;
+}
