@@ -1699,8 +1699,6 @@
 
     <div class="breadcrumbs">
 
-
-
     </div>
     <main>
         <section data-admin-theme="black" class="start-screen-v3 block block--default">
@@ -3971,14 +3969,17 @@
 </style>
 
 <script>
-    document.getElementById('open-widget').addEventListener('click', function() {
-    document.getElementById('support-widget').style.display = 'block';
-});
+        document.getElementById('open-widget').addEventListener('click', function() {
+            document.getElementById('support-widget').style.display = 'block';
+            this.querySelector('img').style.display = 'none';
+        });
 
-document.getElementById('close-widget').addEventListener('click', function() {
-    document.getElementById('support-widget').style.display = 'none';
-});
-</script>
+        document.getElementById('close-widget').addEventListener('click', function() {
+            document.getElementById('support-widget').style.display = 'none';
+            document.getElementById('open-widget').querySelector('img').style.display = 'block';
+        });
+    </script>
+
 </body>
 
 </html>
