@@ -24,6 +24,10 @@ bottom: 40px;
 right: 20px;
 
 
+button{
+    background-color: #747455;
+}
+
 
 z-index: 10;
 }
