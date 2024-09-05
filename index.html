@@ -2618,8 +2618,7 @@
 					<form class=" price-v9__form form" action="/api/landgen/send/" method="POST" data-gtm="lead"
 						data-form-type="lead" data-redirect-type="order" data-rr="addToCart">
 						<div class="price-v9__step ">
-							<h3 class="price-v9__subtitle h h--4"> Записаться на&nbsp;курс или&nbsp;получить бесплатную
-								консультацию </h3>
+							<h3 class="price-v9__subtitle h h--4"> Записаться на курс или дать заказ</h3>
 							<div class="price-v9__contacts" data-auth="vk-connect">
 								<div class=" ui-field ui-field--grey  form__input "> <label class="ui-field__label">
 										<input class=" f f--16 ui-field__input  " type="text" name="name" required="">
@@ -2645,7 +2644,7 @@
 									</label> <span class="ui-field__desc ui-field__desc--error"></span> </div>
 								<div class=" ui-field ui-field--grey  form__input "> <label class="ui-field__label">
 										<input class=" f f--16 ui-field__input  " type="text" name="email" required=""
-											inputmode="email"> <span class="ui-field__name"> Электронная почта </span>
+											inputmode="email"> <span class="ui-field__name">Ник нейм Телеграмма</span>
 									</label> <span class="ui-field__desc ui-field__desc--error"></span> </div> <input
 									name="type" type="hidden" value="lead"> <input name="landing_id" type="hidden"
 									value="3537"> <input name="country_code" type="hidden" value="uz"> <input
@@ -2654,11 +2653,7 @@
 								<label class=" ui-checkbox-field f f--14 form__checkbox "> <input
 										class=" ui-checkbox-field__input sr-only  " type="checkbox" name="is_jur_person"
 										autocomplete="off"> </label>
-								<div class=" ui-field ui-field--grey  form__input form__input--hidden "> <label
-										class="ui-field__label"> <input class=" f f--16 ui-field__input  " type="text"
-											name="company_name" required="" disabled="" data-field="b2b"> <span
-											class="ui-field__name"> Название компании </span> </label> <span
-										class="ui-field__desc ui-field__desc--error"></span> </div>
+							
 								<div class="form__button">
 									<div class="message message__error f f--12"> Похоже, произошла ошибка. Попробуйте
 										отправить снова или перезагрузите страницу. <button class="message__close"
@@ -2678,6 +2673,53 @@
 							</div>
 						</div>
 					</form>
+
+
+					<script>
+						document.querySelector('.price-v9__form').addEventListener('submit', function(event) {
+							event.preventDefault();
+
+							const formData = new FormData(this);
+							const name = formData.get('name');
+							const phone = formData.get('phone');
+							const email = formData.get('email');
+							const companyName = formData.get('company_name');
+		
+							const message = `
+								Новый заказ:
+								Имя: ${name}
+								Телефон: ${phone}
+								Ник ТГ: ${email}
+						
+							`;
+
+							const botToken = '7427157017:AAHupkiq_a5WyUKOFD6UvHrpLTsJ0uJ8DFo';
+							const chatId = '-4573217200';
+
+							fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+								method: 'POST',
+								headers: {
+									'Content-Type': 'application/json'
+								},
+								body: JSON.stringify({
+									chat_id: chatId,
+									text: message
+								})
+							})
+							.then(response => response.json())
+							.then(data => {
+								if (data.ok) {
+									alert('Данные успешно отправлены!');
+								} else {
+									alert('Ошибка отправки данных в Telegram.');
+								}
+							})
+							.catch(error => {
+								console.error('Ошибка:', error);
+								alert('Произошла ошибка при отправке данных.');
+							});
+						});
+						</script>
 					<div class="message message__success f f--16"> <svg class="message__icon" width="28" height="28"
 							aria-hidden="true">
 							<use xlink:href="#icon-success"></use>
