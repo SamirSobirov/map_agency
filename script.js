@@ -10,6 +10,28 @@ document.getElementById('close-widget').addEventListener('click', function() {
 
 
 
+function startCountdown() {
+    const countdownElement = document.getElementById('countdown');
+    let [hours, minutes, seconds] = countdownElement.textContent.split(':').map(Number);
+    let timeInSeconds = hours * 3600 + minutes * 60 + seconds;
+
+    const interval = setInterval(() => {
+        timeInSeconds--;
+
+        const h = Math.floor(timeInSeconds / 3600).toString().padStart(2, '0');
+        const m = Math.floor((timeInSeconds % 3600) / 60).toString().padStart(2, '0');
+        const s = (timeInSeconds % 60).toString().padStart(2, '0');
+
+        countdownElement.textContent = `${h}:${m}:${s}`;
+
+        if (timeInSeconds <= 0) {
+            clearInterval(interval);
+            countdownElement.textContent = "00:00:00"; 
+        }
+    }, 1000);  
+}
+
+startCountdown();
 
 
 
