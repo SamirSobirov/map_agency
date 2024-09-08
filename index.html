@@ -2595,7 +2595,8 @@
 								class="price-v9__timer-pic"
 								src="https://cdn.skillbox.pro/landgen/July/july_percent_sign2.png" width="24"
 								height="24" decoding="async" loading="lazy" alt="">
-							<p class="price-v9__timer-desc"> Скидка действует 	<span id="countdown" data-type="timer">06:42:41</span>
+							<p class="price-v9__timer-desc"> Скидка действует <span id="countdown"
+									data-type="timer">06:42:41</span>
 							</p>
 						</div>
 
@@ -2635,11 +2636,13 @@
 													<div class="iti__flag iti__uz"></div>
 													<div class="iti__arrow"></div>
 												</div>
-											</div><input class=" f f--16 ui-field__input  " type="tel" name="phone"
+											</div>
+
+											<input class=" f f--16 ui-field__input  " type="tel" name="phone"
 												required="" minlength="11" autocomplete="on"
 												placeholder="+998 91 234 56 78" data-intl-tel-input-id="0"
-												inputmode="text"><input type="hidden" name="phone_country_code"
-												value="uz">
+												inputmode="text">
+											<input type="hidden" name="phone_country_code" value="uz">
 										</div> <span class="ui-field__name"> Телефон </span>
 									</label> <span class="ui-field__desc ui-field__desc--error"></span> </div>
 								<div class=" ui-field ui-field--grey  form__input "> <label class="ui-field__label">
@@ -2653,7 +2656,7 @@
 								<label class=" ui-checkbox-field f f--14 form__checkbox "> <input
 										class=" ui-checkbox-field__input sr-only  " type="checkbox" name="is_jur_person"
 										autocomplete="off"> </label>
-							
+
 								<div class="form__button">
 									<div class="message message__error f f--12"> Похоже, произошла ошибка. Попробуйте
 										отправить снова или перезагрузите страницу. <button class="message__close"
@@ -2676,7 +2679,7 @@
 
 
 					<script>
-						document.querySelector('.price-v9__form').addEventListener('submit', function(event) {
+						document.querySelector('.price-v9__form').addEventListener('submit', function (event) {
 							event.preventDefault();
 
 							const formData = new FormData(this);
@@ -2684,7 +2687,7 @@
 							const phone = formData.get('phone');
 							const email = formData.get('email');
 							const companyName = formData.get('company_name');
-		
+
 							const message = `
 								Новый заказ:
 								Имя: ${name}
@@ -2706,20 +2709,20 @@
 									text: message
 								})
 							})
-							.then(response => response.json())
-							.then(data => {
-								if (data.ok) {
-									alert('Данные успешно отправлены!');
-								} else {
-									alert('Ошибка отправки данных в Telegram.');
-								}
-							})
-							.catch(error => {
-								console.error('Ошибка:', error);
-								alert('Произошла ошибка при отправке данных.');
-							});
+								.then(response => response.json())
+								.then(data => {
+									if (data.ok) {
+										alert('Данные успешно отправлены!');
+									} else {
+										alert('Ошибка отправки данных в Telegram.');
+									}
+								})
+								.catch(error => {
+									console.error('Ошибка:', error);
+									alert('Произошла ошибка при отправке данных.');
+								});
 						});
-						</script>
+					</script>
 					<div class="message message__success f f--16"> <svg class="message__icon" width="28" height="28"
 							aria-hidden="true">
 							<use xlink:href="#icon-success"></use>
@@ -2855,8 +2858,7 @@
 				data-header="{&quot;title&quot;:&quot;\u0417\u0430\u043f\u0438\u0441\u0430\u0442\u044c\u0441\u044f \u043d\u0430&amp;nbsp;\u043a\u0443\u0440\u0441 \u0438\u043b\u0438 \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u0443\u044e \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0438\u044e&quot;,&quot;description&quot;:&quot;\u041d\u0430\u0448 \u0441\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0441\u0442 \u0441\u0432\u044f\u0436\u0435\u0442\u0441\u044f \u0441&amp;nbsp;\u0432\u0430\u043c\u0438 \u0438&amp;nbsp;\u043e\u0442\u0432\u0435\u0442\u0438\u0442 \u043d\u0430&amp;nbsp;\u043b\u044e\u0431\u044b\u0435 \u0432\u0430\u0448\u0438 \u0432\u043e\u043f\u0440\u043e\u0441\u044b&quot;}"
 				data-hidden-fields="[{&quot;name&quot;:&quot;type&quot;,&quot;value&quot;:&quot;lead&quot;},{&quot;name&quot;:&quot;landing_id&quot;,&quot;value&quot;:3537},{&quot;name&quot;:&quot;country_code&quot;,&quot;value&quot;:&quot;uz&quot;},{&quot;name&quot;:&quot;language_code&quot;,&quot;value&quot;:&quot;ru&quot;},{&quot;name&quot;:&quot;currency_code&quot;,&quot;value&quot;:&quot;UZS&quot;},{&quot;name&quot;:&quot;block&quot;,&quot;value&quot;:&quot;popups_lead&quot;}]"
 				data-block-name="popup_request">
-				<form class="form form--modal"
-					data-form-type="lead" data-auth="vk-connect" data-redirect-type="order">
+				<form class="form form--modal" data-form-type="lead" data-auth="vk-connect" data-redirect-type="order">
 					<div class=" ui-field ui-field--grey  form__input "> <label class="ui-field__label"> <input
 								class=" f f--16 ui-field__input  " type="text" name="name" required="" minlength="2">
 							<span class="ui-field__name"> Имя </span> </label> <span
