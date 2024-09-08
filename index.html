@@ -1371,9 +1371,12 @@
 								class="start-screen-v3__sale-percent f f--m f--12"> -40% </strong> <span
 								class="start-screen-v3__timer f f--m f--14" data-type="timer">06:42:41</span> </div>
 						<button
-							class="bg-[#747455] ui-button ui-button--filled-main ui-button--big    ui-button--stretch start-screen-v3__button "
-							type="button" data-gtm="lead" data-pixel="msCavChr" data-action-button="order-modal"> <span
-								class="ui-button__text"> Оставить заявку </span> </button>
+							class="bg-[#747455] ui-button ui-button--filled-main ui-button--big ui-button--stretch start-screen-v3__button"
+							id="scrollButton" type="button">
+							<span class="ui-button__text">Оставить заявку</span>
+						</button>
+
+
 					</div>
 					<picture class=" ui-picture  start-screen-v3__pic start-screen-v3__pic--example ">
 						<source media="(min-width: 1024px)"
@@ -1844,7 +1847,8 @@
 				<div class="bg-[#aaaa76] price-info__block price-info__block--no-banner">
 					<div class="price-info__header">
 						<ul class="price-info__data">
-							<li class="price-info__data-item f f--12"> Старт курса: <b class="f f--12 f--m">21 сентябрь</b>
+							<li class="price-info__data-item f f--12"> Старт курса: <b class="f f--12 f--m">21
+									сентябрь</b>
 							</li>
 							<li class="price-info__data-item f f--12"> Осталось: <b class="f f--12 f--m"> 4 места </b>
 							</li>
@@ -1877,8 +1881,8 @@
 					<ul class="price-v9__features ui-list ui-list--bullets p p--2"> </ul>
 				</div>
 				<div class="price-info__block bg-[#aaaa76]">
-					<form class=" price-v9__form form" action="/api/landgen/send/" method="POST" data-gtm="lead"
-						data-form-type="lead" data-redirect-type="order" data-rr="addToCart">
+					<form id="formZayafka" class=" price-v9__form form" action="/api/landgen/send/" method="POST"
+						data-gtm="lead" data-form-type="lead" data-redirect-type="order" data-rr="addToCart">
 						<div class="price-v9__step ">
 							<h3 class="price-v9__subtitle h h--4"> Записаться на курс или дать заказ</h3>
 							<div class="price-v9__contacts" data-auth="vk-connect">
@@ -2114,50 +2118,7 @@
 				<li class="geography__item"> Ош </li>
 				<li class="geography__item"> Джалал-Абад </li>
 			</ul>
-		</section> <template id="order-modal">
-			<div class="order-modal__wrapper"
-				data-header="{&quot;title&quot;:&quot;\u0417\u0430\u043f\u0438\u0441\u0430\u0442\u044c\u0441\u044f \u043d\u0430&amp;nbsp;\u043a\u0443\u0440\u0441 \u0438\u043b\u0438 \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u0443\u044e \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0438\u044e&quot;,&quot;description&quot;:&quot;\u041d\u0430\u0448 \u0441\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0441\u0442 \u0441\u0432\u044f\u0436\u0435\u0442\u0441\u044f \u0441&amp;nbsp;\u0432\u0430\u043c\u0438 \u0438&amp;nbsp;\u043e\u0442\u0432\u0435\u0442\u0438\u0442 \u043d\u0430&amp;nbsp;\u043b\u044e\u0431\u044b\u0435 \u0432\u0430\u0448\u0438 \u0432\u043e\u043f\u0440\u043e\u0441\u044b&quot;}"
-				data-hidden-fields="[{&quot;name&quot;:&quot;type&quot;,&quot;value&quot;:&quot;lead&quot;},{&quot;name&quot;:&quot;landing_id&quot;,&quot;value&quot;:3537},{&quot;name&quot;:&quot;country_code&quot;,&quot;value&quot;:&quot;uz&quot;},{&quot;name&quot;:&quot;language_code&quot;,&quot;value&quot;:&quot;ru&quot;},{&quot;name&quot;:&quot;currency_code&quot;,&quot;value&quot;:&quot;UZS&quot;},{&quot;name&quot;:&quot;block&quot;,&quot;value&quot;:&quot;popups_lead&quot;}]"
-				data-block-name="popup_request">
-				<form class="form form--modal" data-form-type="lead" data-auth="vk-connect" data-redirect-type="order">
-					<div class=" ui-field ui-field--grey  form__input "> <label class="ui-field__label"> <input
-								class=" f f--16 ui-field__input  " type="text" name="name" required="" minlength="2">
-							<span class="ui-field__name"> Имя </span> </label> <span
-							class="ui-field__desc ui-field__desc--error"></span> </div>
-					<div class=" ui-field ui-field--grey  form__input "> <label class="ui-field__label"> <input
-								class=" f f--16 ui-field__input  " type="tel" name="phone" required="" minlength="11">
-							<span class="ui-field__name"> Телефон </span> </label> <span
-							class="ui-field__desc ui-field__desc--error"></span> </div>
-					<div class=" ui-field ui-field--grey  form__input "> <label class="ui-field__label"> <input
-								class=" f f--16 ui-field__input  " type="text" name="email" required=""
-								inputmode="email"> <span class="ui-field__name"> Электронная почта </span> </label>
-						<span class="ui-field__desc ui-field__desc--error"></span>
-					</div>
-					<div class="form__button">
-						<div class="message message__error f f--12"> Похоже, произошла ошибка. Попробуйте отправить
-							снова или&nbsp;перезагрузите страницу. <button class="message__close"
-								aria-label="Закрыть сообщение об ошибке" type="button"> <svg width="20" height="20"
-									aria-hidden="true">
-									<use href="#ui-close"></use>
-								</svg> </button> </div> <button
-							class=" ui-button ui-button--filled-main ui-button--big    ui-button--stretch  "
-							type="submit"> <span class="ui-button__text"> Записаться на курс </span>
-							<div class="ui-loader ui-button__loader"> <svg class="ui-loader__icon" viewBox="0 0 100 100"
-									fill="none">
-									<circle cx="50%" cy="50%" r="45" stroke="currentColor" class="ui-loader__circle">
-									</circle>
-								</svg> </div>
-						</button>
-					</div>
-				</form>
-				<div class="message message__success f f--16"> <svg class="message__icon" width="28" height="28"
-						aria-hidden="true">
-						<use href="#icon-success"></use>
-					</svg> <b>Спасибо!</b>
-					<p> Ваша заявка успешно отправлена </p>
-				</div>
-			</div>
-		</template> <template id="trap-modal">
+		</section> <template id="trap-modal">
 
 		</template> <template id="auto-payment-form">
 			<div class="auto-payment-form"
