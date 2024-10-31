@@ -10,6 +10,8 @@ document.getElementById('close-widget').addEventListener('click', function() {
 
 
 
+
+
 function startCountdown() {
     const countdownElement = document.getElementById('countdown');
     let [hours, minutes, seconds] = countdownElement.textContent.split(':').map(Number);
